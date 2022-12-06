@@ -186,6 +186,9 @@ export default function CurrencyInputPanel({
                 buttonColor="textSubtle"
                 text={tokenAddress}
                 tooltipMessage={t('Token address copied')}
+                tooltipTop={-20}
+                tooltipRight={40}
+                tooltipFontSize={12}
               />
               <AddToWalletButton
                 variant="text"
