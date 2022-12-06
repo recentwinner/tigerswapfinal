@@ -312,7 +312,7 @@ const StakeAction: React.FC<React.PropsWithChildren<FarmCardActionsProps>> = ({
   return (
     <Flex justifyContent="space-between" alignItems="center">
       <FarmUI.StakedLP
-        decimals={18}
+       
         stakedBalance={stakedBalance}
         quoteTokenSymbol={WNATIVE[chainId]?.symbol === quoteToken.symbol ? NATIVE[chainId]?.symbol : quoteToken.symbol}
         tokenSymbol={WNATIVE[chainId]?.symbol === token.symbol ? NATIVE[chainId]?.symbol : token.symbol}
