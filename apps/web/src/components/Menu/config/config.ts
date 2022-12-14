@@ -1,6 +1,7 @@
 import {
   MenuItemsType,
   DropdownMenuItemType,
+  HomeIcon,
   SwapIcon,
   SwapFillIcon,
   EarnFillIcon,
@@ -43,6 +44,17 @@ const config: (
   chainId?: number,
 ) => ConfigMenuItemsType[] = (t, isDark, languageCode, chainId) =>
   [
+
+
+    {
+      label: t('Home'),
+      icon: HomeIcon,
+      fillIcon: HomeIcon,
+      href: 'https://app.tigerswap.global',
+     
+    },
+
+
     {
       label: t('Trade'),
       icon: SwapIcon,
