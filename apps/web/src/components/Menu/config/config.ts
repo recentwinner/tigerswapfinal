@@ -81,14 +81,14 @@ const config: (
     },
     {
       label: t('Earn'),
-      href: 'https://app.tigerswap.global/farm',
+      href: 'https://app.tigerswap.global/farms',
       icon: EarnIcon,
       fillIcon: EarnFillIcon,
       image: '/images/decorations/pe2.png',
       items: [
         {
           label: t('Farms'),
-          href: 'https://app.tigerswap.global/farm',
+          href: 'https://app.tigerswap.global/farms',
         },
         {
           label: t('Pools'),
