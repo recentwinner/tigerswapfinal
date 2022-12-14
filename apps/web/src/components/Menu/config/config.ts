@@ -46,13 +46,13 @@ const config: (
   [
 
 
-    {
-      label: t('Home'),
-      icon: HomeIcon,
-      fillIcon: HomeIcon,
-      href: 'https://app.tigerswap.global',
+    // {
+    //   label: t('Home'),
+    //   icon: HomeIcon,
+    //   fillIcon: HomeIcon,
+    //   href: 'https://app.tigerswap.global',
      
-    },
+    // },
 
 
     {
