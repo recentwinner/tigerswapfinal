@@ -200,12 +200,12 @@ const config: (
         },
         {
           label: t('Blog'),
-          href: 'https://medium.com/pancakeswap',
+          href: 'https://tigerswap-ex.medium.com',
           type: DropdownMenuItemType.EXTERNAL_LINK,
         },
         {
           label: t('Docs'),
-          href: 'https://docs.pancakeswap.finance',
+          href: 'https://docs.tigerswap.global/',
           type: DropdownMenuItemType.EXTERNAL_LINK,
         },
       ].map((item) => addMenuItemSupported(item, chainId)),

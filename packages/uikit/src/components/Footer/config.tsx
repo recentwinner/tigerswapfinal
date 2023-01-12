@@ -88,7 +88,7 @@ export const socials = [
     items: [
       {
         label: "English",
-        href: "https://t.me/TigerSwap_Ex",
+        href: "https://t.me/Tigerwap_Ex",
       },
       // {
       //   label: "Bahasa Indonesia",
@@ -148,7 +148,7 @@ export const socials = [
       // },
       {
         label: "Announcements",
-        href: "https://t.me/TigerSwap_Ex_ann",
+        href: "https://t.me/Tigerwap_Ex",
       },
     ],
   },
