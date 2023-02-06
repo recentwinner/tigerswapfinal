@@ -11,7 +11,7 @@ import UserMenu from './UserMenu'
 import { useMenuItems } from './hooks/useMenuItems'
 import GlobalSettings from './GlobalSettings'
 import { getActiveMenuItem, getActiveSubMenuItem } from './utils'
-import { footerLinks } from './config/footerConfig'
+// import { footerLinks } from './config/footerConfig'
 import { SettingsMode } from './GlobalSettings/types'
 
 const Menu = (props) => {
@@ -21,7 +21,7 @@ const Menu = (props) => {
   const { pathname } = useRouter()
   const [showPhishingWarningBanner] = usePhishingBannerManager()
 
-  const menuItems = useMenuItems()
+  const menuItems = useMenuItems() 
 
   const activeMenuItem = getActiveMenuItem({ menuConfig: menuItems, pathname })
   const activeSubMenuItem = getActiveSubMenuItem({ menuItem: activeMenuItem, pathname })
@@ -55,11 +55,13 @@ const Menu = (props) => {
         setLang={setLanguage}
         cakePriceUsd={cakePriceUsd}
         links={menuItems}
+        // links={config}
+        priceLink="https://www.coingecko.com/en/coins/tigerswap-finance"
         subLinks={activeMenuItem?.hideSubNav || activeSubMenuItem?.hideSubNav ? [] : activeMenuItem?.items}
         // footerLinks={getFooterLinks}
         activeItem={activeMenuItem?.href}
         activeSubItem={activeSubMenuItem?.href}
-        buyCakeLabel={t('Buy TIGER')}
+        // buyCakeLabel={t('Buy TIGER')}
         {...props}
       />
     </>

@@ -1,4 +1,5 @@
 import {
+  MenuEntry,
   MenuItemsType,
   DropdownMenuItemType,
   HomeIcon,
@@ -54,13 +55,14 @@ const config: (
      
     // },
 
-
+    // {
+    //   label: 'Home',
+    //   icon: 'HomeIcon',
+    //   href: '/',
+    // },
     {
-      label: t('Trade'),
-      icon: SwapIcon,
-      fillIcon: SwapFillIcon,
-      href: '/swap',
-      showItemsOnMobile: false,
+      label: 'Tiger Dex',
+      icon: 'TradeIcon',
       items: [
         {
           label: t('Swap'),
@@ -91,20 +93,21 @@ const config: (
         // },
       ].map((item) => addMenuItemSupported(item, chainId)),
     },
+
     {
       label: t('Earn'),
-      href: 'https://app.tigerswap.global/farms',
+      href: '/farms',
       icon: EarnIcon,
-      fillIcon: EarnFillIcon,
+      // fillIcon: EarnFillIcon,
       image: '/images/decorations/pe2.png',
       items: [
         {
           label: t('Farms'),
-          href: 'https://app.tigerswap.global/farms',
+          href: '/farms',
         },
         {
           label: t('Pools'),
-          href: 'https://app.tigerswap.global/pools',
+          href: '/pools',
           supportChainIds: SUPPORT_ONLY_BSC,
         },
       ].map((item) => addMenuItemSupported(item, chainId)),
