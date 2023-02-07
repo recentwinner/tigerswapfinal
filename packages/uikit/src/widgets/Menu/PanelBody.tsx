@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 // import { useLocation } from "react-router-dom";
 import { useRouter } from 'next/router';
@@ -6,14 +6,15 @@ import { SvgProps } from "../../components/Svg";
 import * as IconModule from "./icons";
 import Accordion from "./Accordion";
 import { MenuEntry, LinkLabel } from "./MenuEntry";
+// import { MenuContext } from "./context";
 // import MenuItems from "../../components/MenuItems/MenuItems";
 // import { SubMenuItems } from "../../components/SubMenuItems";
 // import Dropdown from "../../components/Dropdown/Dropdown";
-// import MenuLink from "./MenuLink";
-import Link from 'next/link';
-// import LinkExternal from "../../components/Link/Link";
+import MenuLink from "./MenuLink";
+// import Link from 'next/link';
+// import Link from "../../components/Link/Link";
 import { sidelinks } from "./config";
-import { PanelProps, PushedProps } from "./types";
+import { PanelProps, PushedProps, MenuLinkType } from "./types";
 
 
 
@@ -58,21 +59,24 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile }) => {
               label={entry.label}
               // initialOpenState={entry.initialOpenState}
               // className={calloutClass}
+              // target="_blank" rel="noopener noreferrer" 
             >
               {isPushed &&
                  entry.items.map((item) => (
                    
                       <MenuEntry key={item.href} secondary isActive={item.href === pathname } onClick={handleClick}>
 
-                          {pathname.startsWith("https") ? 
+                          {item.type === MenuLinkType.EXTERNAL && (
 
-                         <a  href={item.href} target="_blank" rel="noopener noreferrer" >{item.label}</a>
+                         <MenuLink href={item.href} target="_blank" >{item.label}</MenuLink>
 
-                         :
+                         )}
 
-                         <Link href={item.href}>{item.label}</Link>
+                        {item.type === MenuLinkType.INTERNAL && (
 
-                         }
+                         <MenuLink href={item.href}>{item.label}</MenuLink>
+
+                         )}
 
                       </MenuEntry>
                      ))} 
@@ -84,17 +88,19 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile }) => {
           <MenuEntry key={entry.label} isActive={entry.href ===  pathname }  onClick={handleClick} >
 
 
-             {pathname.startsWith("https") ? 
+              {entry.type === MenuLinkType.EXTERNAL && (
 
-              <a href={entry.href} target="_blank" rel="noopener noreferrer" >
-              <LinkLabel isPushed={isPushed}> {iconElement} {entry.label} </LinkLabel>
-              </a>
-             :
-             <Link href={entry.href} >
+              <MenuLink href={entry.href}  target="_blank">
+               <LinkLabel isPushed={isPushed}> {iconElement} {entry.label} </LinkLabel>
+              </MenuLink>
+               )}
+
+               {entry.type === MenuLinkType.INTERNAL && (
+             <MenuLink href={entry.href} >
              <LinkLabel isPushed={isPushed}> {iconElement} {entry.label} </LinkLabel>
-             </Link>
+             </MenuLink>
+              )}
             
-              }
             
           </MenuEntry>
         );

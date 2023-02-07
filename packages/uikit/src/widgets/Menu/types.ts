@@ -15,6 +15,11 @@ export interface LinkStatus {
   color: keyof Colors;
 }
 
+export enum MenuLinkType {
+  INTERNAL,
+  EXTERNAL,
+}
+
 
 // export interface LangType {
 //   code: string;
@@ -43,6 +48,7 @@ export interface PushedProps {
 export interface MenuSubEntry {
   label: string;
   href: string;
+  type?: MenuLinkType;
   calloutClass?: string;
 }
 
@@ -50,6 +56,7 @@ export interface MenuEntry {
   label: string;
   icon: string;
   href?: string;
+  type?: MenuLinkType;
   items?: MenuSubEntry[];
   calloutClass?: string;
   initialOpenState?: boolean;
@@ -63,6 +70,7 @@ export interface PanelProps {
   langs: Language[];
   setLang: (lang: Language) => void;
   sidelinks: Array<MenuEntry>;
+  linkComponent?: ElementType;
   // href: string;
   priceLink: string;
   subLinks?: Array<SubMenuItemsType>;

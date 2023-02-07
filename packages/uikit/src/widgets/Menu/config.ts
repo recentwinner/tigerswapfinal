@@ -14,7 +14,7 @@ import {
   TrophyFillIcon,
   MoreIcon,
 } from "../../components/Svg";
-import { LinkStatus } from "./types";
+import { LinkStatus, MenuLinkType } from "./types";
 
 export const status = {
   LIVE: <LinkStatus>{
@@ -143,31 +143,38 @@ export const sidelinks = [
     label: 'Home',
     icon: 'HomeIcon',
     href: 'https://app.tigerswap.global/',
+    type: MenuLinkType.EXTERNAL,
   },
   {
     label: 'Tiger Dex',
     icon: 'TradeIcon',
     href: '/swap',
+    type: MenuLinkType.INTERNAL,
     items: [
       {
         label: 'v2 Exchange',
         href: '/swap',  // /swap
+        type: MenuLinkType.INTERNAL,
       },
       {
         label: 'Limit Order',
         href: '/limit-orders',
+        type: MenuLinkType.INTERNAL,
       },
       {
         label: 'Liquidity',
         href: '/liquidity', 
+        type: MenuLinkType.INTERNAL,
       },
       {
         label: 'Perpetuals - Soon',
         href: '/perpetuals',
+        type: MenuLinkType.INTERNAL,
       },
       {
         label: 'v3 AMM - In Progress',
         href: '/v3AMM',  // /swap
+        type: MenuLinkType.INTERNAL,
       },
     ],
   },
@@ -175,26 +182,31 @@ export const sidelinks = [
     label: 'Tiger Farms',
     icon: 'FarmIcon',
     href: 'https://app.tigerswap.global/farms', // /farms
+    type: MenuLinkType.EXTERNAL,
   },
   {
     label: 'Tiger Staking',
     icon: 'PoolIcon',
     href: 'https://app.tigerswap.global/pools', //  /nests
+    type: MenuLinkType.EXTERNAL,
   },
    {
      label: 'Tiger Vaults',
      icon: 'TigervaultIcon',
      href: '/tigervaults', // /pools
+     type: MenuLinkType.INTERNAL,
    },
    {
     label: 'Tiger Bank',
     icon: 'TigerbankIcon',
     href: '/tigerbank', // /bank
+    type: MenuLinkType.INTERNAL,
   },
    {
      label: 'Tiger Lottery',
      icon: 'TicketIcon',
      href: '/tigerlottery', // /lottery
+     type: MenuLinkType.INTERNAL,
    },
   //  {
   //   label: 'Tiger BET - Soon',
@@ -210,24 +222,28 @@ export const sidelinks = [
      label: 'Tiger NFTs (ESG)',
      icon: 'NftIcon',
      href: '/tigernft', // /nft
+     type: MenuLinkType.INTERNAL,
    },
   
    {
     label: 'Tiger DAO',
     icon: 'TigerdaoIcon',
     href: '/tigerdao', // /dao
+    type: MenuLinkType.INTERNAL,
   },
 
   {
     label: 'Tiger Pad',
     icon: 'TigerpadIcon',
     href: '/tigerpad', // /pad
+    type: MenuLinkType.INTERNAL,
   },
 
   {
     label: 'Market & Trades',
     icon: 'InfoIcon',
     href: '/coingecko',
+    type: MenuLinkType.EXTERNAL,
     items: [
       // {
       //   label: 'PancakeSwap',
@@ -236,14 +252,17 @@ export const sidelinks = [
       {
         label: 'View on CoinGecko',
         href: '/coingecko',
+        type: MenuLinkType.EXTERNAL,
       },
       {
         label: 'View on CoinMarketCap',
         href: '/coinmarketcap',
+        type: MenuLinkType.EXTERNAL,
       },
       {
         label: 'CEX listing - Soon',
         href: '/cexlisting',
+        type: MenuLinkType.EXTERNAL,
       },
       // {
       //   label: 'Trade on Bittrue-Soon',
@@ -267,33 +286,38 @@ export const sidelinks = [
     label: 'Join Tiger Army',
     icon: 'TigerarmyIcon',
     href: 'https://forms.gle/Rp1KVbQUcYm1JvY98',
+    type: MenuLinkType.EXTERNAL,
     items: [
       {
         label: 'Apply as Dev',
         href: 'https://forms.gle/Rp1KVbQUcYm1JvY98',
-        type: DropdownMenuItemType.EXTERNAL_LINK,
+        type: MenuLinkType.EXTERNAL,
        
       },
       {
         label: 'Apply as Designer',
         href: 'https://forms.gle/MPQuFQReSHuhjfPm9',
-        type: DropdownMenuItemType.EXTERNAL_LINK,
+        type: MenuLinkType.EXTERNAL,
       },
       {
         label: 'Apply as NFT Artist',
         href: 'https://forms.gle/sKHPzxgTD6NL2tPr6',
+        type: MenuLinkType.EXTERNAL,
       },
       {
         label: 'Apply as Influencer',
         href: 'https://forms.gle/28TE4PJGHnnA5PKp9',
+        type: MenuLinkType.EXTERNAL,
       },
       {
         label: 'Marketing & Promos',
         href: 'https://forms.gle/bSwHYSYPyeaJkmTo7',
+        type: MenuLinkType.EXTERNAL,
       },
       {
         label: 'Others',
         href: '/others',
+        type: MenuLinkType.EXTERNAL,
       },
     ],
   },
@@ -301,36 +325,44 @@ export const sidelinks = [
     label: 'More',
     icon: 'MoreboxIcon',
     href: '/vote',
+    type: MenuLinkType.INTERNAL,
     items: [
       {
         label: 'Vote',
         href: '/vote',
+        type: MenuLinkType.INTERNAL,
       },
       {
         label: 'Website',
         href: 'https://tigerswap.global/',
+        type: MenuLinkType.EXTERNAL,
        
       },
       {
         label: 'Tiger Documentation',
         href: 'https://docs.tigerswap.global/',
+        type: MenuLinkType.EXTERNAL,
      
       },
       {
         label: 'Whitepaper',
         href: 'https://docs.tigerswap.global/fundamentals/tokenomics-and-techpaper',
+        type: MenuLinkType.EXTERNAL,
       },
       {
         label: 'Audits',
         href: 'https://docs.tigerswap.global/useful-links/security-audits-and-addresses',  // https://www.tigerswapfinance.com/files/Audit.pdf
+        type: MenuLinkType.EXTERNAL,
       },
       {
         label: 'Github',
         href: 'https://github.com/TigerSwapEx',
+        type: MenuLinkType.EXTERNAL,
       },
       {
         label: 'Contact Us',
         href: 'https://docs.tigerswap.global/useful-links/contact-us',
+        type: MenuLinkType.EXTERNAL,
       },
     ],
   },
@@ -338,16 +370,19 @@ export const sidelinks = [
     label: 'Partnerships',
     icon: 'HandshakeIcon',
     href: 'https://forms.gle/vXLB1YfSJnJrURvR9',
+    type: MenuLinkType.EXTERNAL,
    
   },
   {
     label: 'Analytics',
     icon: 'InfoIcon',
     href: '/info',
+    type: MenuLinkType.INTERNAL,
     items: [
       {
         label: 'Info',
         href: '/info',
+        type: MenuLinkType.INTERNAL,
       },
     ],
   },
@@ -355,6 +390,7 @@ export const sidelinks = [
     label: 'Online Store',
     icon: 'ShopIcon',
     href: 'https://merch.tigerswap.global',
+    type: MenuLinkType.EXTERNAL,
   },
 
   

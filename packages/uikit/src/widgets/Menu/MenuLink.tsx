@@ -1,5 +1,6 @@
 import React, { AnchorHTMLAttributes, useContext } from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
+import Link from 'next/link';
 
 
 const MenuLink: React.FC<AnchorHTMLAttributes<HTMLAnchorElement>> = ({ href, ...otherProps }) => {
@@ -7,8 +8,8 @@ const MenuLink: React.FC<AnchorHTMLAttributes<HTMLAnchorElement>> = ({ href, ...
   const isHttpLink = href?.startsWith("http");
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const Tag: any = isHttpLink ? "a" :  NavLink;
-  const props = isHttpLink ? { href } : { to: href };
+  const Tag: any = isHttpLink ? "a" : Link;
+  const props = isHttpLink ? { href } : { href };
   return <Tag {...props} {...otherProps} />;
 };
 
