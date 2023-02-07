@@ -4,7 +4,7 @@ import { ThemeContext as StyledThemeContext } from 'styled-components'
 import { useTheme as useNextTheme } from 'next-themes'
 
 export const COOKIE_THEME_KEY = 'theme'
-export const THEME_DOMAIN = '.exchange.tigerswap.global'
+export const THEME_DOMAIN = '.v2.app.tigerswap.global'
 
 const useTheme = () => {
   const { resolvedTheme, setTheme } = useNextTheme()

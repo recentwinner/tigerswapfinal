@@ -8,10 +8,10 @@ import Accordion from "./Accordion";
 import { MenuEntry, LinkLabel } from "./MenuEntry";
 // import MenuItems from "../../components/MenuItems/MenuItems";
 // import { SubMenuItems } from "../../components/SubMenuItems";
-import Dropdown from "../../components/Dropdown/Dropdown";
-import MenuLink from "./MenuLink";
+// import Dropdown from "../../components/Dropdown/Dropdown";
+// import MenuLink from "./MenuLink";
 import Link from 'next/link';
-// import Link from "../../components/Link/Link";
+// import LinkExternal from "../../components/Link/Link";
 import { sidelinks } from "./config";
 import { PanelProps, PushedProps } from "./types";
 
@@ -20,7 +20,6 @@ import { PanelProps, PushedProps } from "./types";
 
 interface Props extends PanelProps, PushedProps {
   isMobile: boolean;
-  href: string;
 }
 
 const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
@@ -33,21 +32,23 @@ const Container = styled.div`
   height: 100%;
 `;
 
-const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, href }) => {
+const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile }) => {
   const { pathname } = useRouter()
-  const isHttpLink = href?.startsWith("http");
 
   // Close the menu when a user clicks a link on mobile
   const handleClick = isMobile ? () => pushNav(false) : undefined;
 
+
   return (
     <Container>
       {sidelinks.map((entry) => {
+        // const isHttpLink = entry.href?.startsWith("http");
         const Icon = Icons[entry.icon];
         const iconElement = <Icon width="24px" mr="8px" />;
         // const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
 
         if (entry.items) {
+          
           return (
             <Accordion
               key={entry.label}
@@ -59,38 +60,41 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, href }) => {
               // className={calloutClass}
             >
               {isPushed &&
-                entry.items.map((item) => (
-                  <MenuEntry  key={item.href} secondary isActive={item.href ===  pathname ||  isHttpLink } onClick={handleClick}>
-                     { item.href ===  pathname ? 
-                    <Link href={item.href}>{item.label}</Link>
-                    :
-                    <a href={item.href} >{item.label}</a>
+                 entry.items.map((item) => (
+                   
+                      <MenuEntry key={item.href} secondary isActive={item.href === pathname } onClick={handleClick}>
 
-                     }
-                  </MenuEntry>
-                ))} 
+                          {pathname.startsWith("https") ? 
+
+                         <a  href={item.href} target="_blank" rel="noopener noreferrer" >{item.label}</a>
+
+                         :
+
+                         <Link href={item.href}>{item.label}</Link>
+
+                         }
+
+                      </MenuEntry>
+                     ))} 
             </Accordion>
           );
         }
 
         return (
-          <MenuEntry key={entry.label} isActive={entry.href ===  pathname ||  isHttpLink} >
+          <MenuEntry key={entry.label} isActive={entry.href ===  pathname }  onClick={handleClick} >
 
-             {iconElement}
 
-           {entry.href ===  pathname ? 
+             {pathname.startsWith("https") ? 
+
+              <a href={entry.href} target="_blank" rel="noopener noreferrer" >
+              <LinkLabel isPushed={isPushed}> {iconElement} {entry.label} </LinkLabel>
+              </a>
+             :
+             <Link href={entry.href} >
+             <LinkLabel isPushed={isPushed}> {iconElement} {entry.label} </LinkLabel>
+             </Link>
             
-            <Link href={entry.href} onClick={handleClick} >
-              <LinkLabel isPushed={isPushed}> {entry.label} </LinkLabel>
-            </Link>
-            
-            :
-
-            <a  href={entry.href} onClick={handleClick} >
-            <LinkLabel isPushed={isPushed}> {entry.label} </LinkLabel>
-            </a> 
-
-            }
+              }
             
           </MenuEntry>
         );

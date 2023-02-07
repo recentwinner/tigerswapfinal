@@ -88,7 +88,6 @@ const MobileOnlyOverlay = styled(Overlay)`
 
 const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
   linkComponent = "a",
-  href,
   banner,
   rightSide,
   isDark,
@@ -189,13 +188,7 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
 
   return (
     <MenuContext.Provider value={{ linkComponent }}>
-      {/* <AtomBox
-        asChild
-        minHeight={{
-          xs: "auto",
-          md: "100vh",
-        }}
-      > */}
+     
         <Wrapper>
          
             {banner && isMounted && <TopBannerContainer height={topBannerHeight}>{banner}</TopBannerContainer>}
@@ -204,7 +197,8 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
                     isPushed={isPushed}
                     togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
                     isDark={isDark}
-                    href={homeLink?.href ?? "/"}
+                    // href={homeLink?.href ?? "/"}
+                    href={"https://app.tigerswap.global"}
                 />
               <Flex>
                 {/* <Logo href={homeLink?.href ?? "/"} /> */}
@@ -263,7 +257,6 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
                 langs={langs}
                 setLang={setLang}
                 currentLang={currentLang}
-                href={href}
                 cakePriceUsd={cakePriceUsd}
                 pushNav={setIsPushed}
                 sidelinks={sidelinks}
@@ -299,21 +292,10 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
        </BodyWrapper>
           
         </Wrapper>
-      {/* </AtomBox> */}
-      {/* <Footer
-        items={footerLinks}
-        isDark={isDark}
-        toggleTheme={toggleTheme}
-        langs={langs}
-        setLang={setLang}
-        currentLang={currentLang}
-        cakePriceUsd={cakePriceUsd}
-        buyCakeLabel={buyCakeLabel}
-        mb={[`${MOBILE_MENU_HEIGHT}px`, null, "0px"]}
-      /> */}
+  
       {/* <AtomBox display={{ xs: "block", md: "none" }}>
         <BottomNav items={links} activeItem={activeItem} activeSubItem={activeSubItem} />
-      </AtomBox> */}
+       </AtomBox> */}
     </MenuContext.Provider>
   );
 };

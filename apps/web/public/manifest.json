@@ -1,7 +1,7 @@
 {
   "short_name": "TigerSwap",
   "name": "TigerSwap",
-  "description": "Farm Tiger with Pancake LP Tokens",
+  "description": "Farm Tiger with LP Tokens",
   "homepage_url": "https://app.tigerswap.global/",
   "start_url": ".",
   "display": "standalone",

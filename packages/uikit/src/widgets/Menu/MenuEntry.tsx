@@ -20,6 +20,8 @@ const rainbowAnimation = keyframes`
 const LinkLabel = styled.div<{ isPushed: boolean }>`
   color: ${({ isPushed, theme }) => (isPushed ? theme.colors.textSubtle : "transparent")};
   transition: color 0.4s;
+  display: flex;
+  align-items: center;
   flex-grow: 1;
 `;
 

@@ -1,6 +1,10 @@
 import noop from "lodash/noop";
 import { DropdownMenuItems, DropdownMenuItemType } from "../../components/DropdownMenu/types";
 import { MenuItemsType } from "../../components/MenuItems/types";
+// import { HomeIcon, TradeIcon, FarmIcon, PoolIcon, TwitterIcon, TelegramIcon, ShopIcon, InfoIcon, HandshakeIcon,
+//   MoreboxIcon, TigerarmyIcon, TigervaultIcon, TigerbankIcon, TicketIcon, NftIcon, TigerdaoIcon, TigerpadIcon
+// } from "./icons";
+
 import {
   SwapIcon,
   SwapFillIcon,
@@ -10,7 +14,7 @@ import {
   TrophyFillIcon,
   MoreIcon,
 } from "../../components/Svg";
-import { LinkStatus, MenuEntry } from "./types";
+import { LinkStatus } from "./types";
 
 export const status = {
   LIVE: <LinkStatus>{
@@ -92,45 +96,45 @@ export const links: MenuItemsType[] = [
       },
     ],
   },
-  {
-    label: "",
-    href: "/",
-    icon: MoreIcon,
-    items: [
-      {
-        label: "Info & Analytics",
-        href: "/",
-      },
-      {
-        label: "IFO Token Sales",
-        href: "/",
-        status: status.SOON,
-      },
-      {
-        type: DropdownMenuItemType.DIVIDER,
-      },
-      {
-        label: "NFT Collectibles",
-        href: "/",
-      },
-      {
-        label: "Team Leaderboard",
-        href: "/",
-      },
-      {
-        type: DropdownMenuItemType.DIVIDER,
-      },
-      {
-        label: "Blog",
-        href: "/",
-      },
-      {
-        label: "Docs & Guides",
-        href: "/",
-        type: DropdownMenuItemType.EXTERNAL_LINK,
-      },
-    ],
-  },
+  // {
+  //   label: "",
+  //   href: "/",
+  //   icon: MoreIcon,
+  //   items: [
+  //     {
+  //       label: "Info & Analytics",
+  //       href: "/",
+  //     },
+  //     {
+  //       label: "IFO Token Sales",
+  //       href: "/",
+  //       status: status.SOON,
+  //     },
+  //     {
+  //       type: DropdownMenuItemType.DIVIDER,
+  //     },
+  //     {
+  //       label: "NFT Collectibles",
+  //       href: "/",
+  //     },
+  //     {
+  //       label: "Team Leaderboard",
+  //       href: "/",
+  //     },
+  //     {
+  //       type: DropdownMenuItemType.DIVIDER,
+  //     },
+  //     {
+  //       label: "Blog",
+  //       href: "/",
+  //     },
+  //     {
+  //       label: "Docs & Guides",
+  //       href: "/",
+  //       type: DropdownMenuItemType.EXTERNAL_LINK,
+  //     },
+  //   ],
+  // },
 ];
 
 
@@ -143,6 +147,7 @@ export const sidelinks = [
   {
     label: 'Tiger Dex',
     icon: 'TradeIcon',
+    href: '/swap',
     items: [
       {
         label: 'v2 Exchange',
@@ -150,7 +155,7 @@ export const sidelinks = [
       },
       {
         label: 'Limit Order',
-        href: '/imit-orders',
+        href: '/limit-orders',
       },
       {
         label: 'Liquidity',
@@ -179,17 +184,17 @@ export const sidelinks = [
    {
      label: 'Tiger Vaults',
      icon: 'TigervaultIcon',
-     href: 'https://app.tigerswap.global/vaults', // /pools
+     href: '/tigervaults', // /pools
    },
    {
     label: 'Tiger Bank',
     icon: 'TigerbankIcon',
-    href: '/bank', // /bank
+    href: '/tigerbank', // /bank
   },
    {
      label: 'Tiger Lottery',
      icon: 'TicketIcon',
-     href: '/lottery', // /lottery
+     href: '/tigerlottery', // /lottery
    },
   //  {
   //   label: 'Tiger BET - Soon',
@@ -204,7 +209,7 @@ export const sidelinks = [
    {
      label: 'Tiger NFTs (ESG)',
      icon: 'NftIcon',
-     href: '/nft', // /nft
+     href: '/tigernft', // /nft
    },
   
    {
@@ -222,6 +227,7 @@ export const sidelinks = [
   {
     label: 'Market & Trades',
     icon: 'InfoIcon',
+    href: '/coingecko',
     items: [
       // {
       //   label: 'PancakeSwap',
@@ -260,14 +266,18 @@ export const sidelinks = [
   {
     label: 'Join Tiger Army',
     icon: 'TigerarmyIcon',
+    href: 'https://forms.gle/Rp1KVbQUcYm1JvY98',
     items: [
       {
         label: 'Apply as Dev',
         href: 'https://forms.gle/Rp1KVbQUcYm1JvY98',
+        type: DropdownMenuItemType.EXTERNAL_LINK,
+       
       },
       {
         label: 'Apply as Designer',
         href: 'https://forms.gle/MPQuFQReSHuhjfPm9',
+        type: DropdownMenuItemType.EXTERNAL_LINK,
       },
       {
         label: 'Apply as NFT Artist',
@@ -283,17 +293,18 @@ export const sidelinks = [
       },
       {
         label: 'Others',
-        href: '',
+        href: '/others',
       },
     ],
   },
   {
     label: 'More',
     icon: 'MoreboxIcon',
+    href: '/vote',
     items: [
       {
         label: 'Vote',
-        href: '',
+        href: '/vote',
       },
       {
         label: 'Website',
@@ -333,7 +344,14 @@ export const sidelinks = [
     label: 'Analytics',
     icon: 'InfoIcon',
     href: '/info',
-  },{
+    items: [
+      {
+        label: 'Info',
+        href: '/info',
+      },
+    ],
+  },
+  {
     label: 'Online Store',
     icon: 'ShopIcon',
     href: 'https://merch.tigerswap.global',
@@ -345,7 +363,7 @@ export const sidelinks = [
 export const socials = [
   {
     label: "Telegram",
-    icon: "TelegramIcon",
+    icon: 'TelegramIcon',
     items: [
       {
         label: "English",
@@ -361,7 +379,7 @@ export const socials = [
   },
   {
     label: "Twitter",
-    icon: "TwitterIcon",
+    icon: 'TwitterIcon',
     href: "https://twitter.com/TigerSwap_Ex",
   },
 ];
@@ -397,7 +415,7 @@ export const userMenulinks: DropdownMenuItems[] = [
   },
   {
     type: DropdownMenuItemType.EXTERNAL_LINK,
-    href: "https://pancakeswap.finance",
+    href: "https://v2.app.tigerswap.global",
     label: "Link",
   },
   {

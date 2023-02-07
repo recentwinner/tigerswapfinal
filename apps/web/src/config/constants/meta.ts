@@ -6,7 +6,7 @@ export const DEFAULT_META: PageMeta = {
   title: 'TigerSwap',
   description:
     'The most popular AMM on BSC by user count! Earn TIGER through yield farming, then stake it in Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by TigerSwap).',
-  image: 'https://exchange.tigerswap.global/images/hero.png',
+  image: 'https://v2.app.tigerswap.global/images/hero.png',
 }
 
 interface PathList {
